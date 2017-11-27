@@ -1,10 +1,12 @@
 package br.edu.univas.si8.ta.shopping.rest.impl;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 
 import br.edu.univas.si8.ta.shopping.ejb.interfaces.Shoppings;
 import br.edu.univas.si8.ta.shopping.rest.api.OrderService;
 
+@RequestScoped
 public class OrderServiceImpl implements OrderService {
 
 	@EJB(mappedName = "java:app/shopping-rest-ejb-0.1-SNAPSHOT/ShoppingBean!br.edu.univas.si8.ta.shopping.ejb.interfaces.ShoppingsRemote")
