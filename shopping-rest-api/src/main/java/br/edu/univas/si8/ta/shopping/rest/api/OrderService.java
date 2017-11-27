@@ -1,5 +1,6 @@
 package br.edu.univas.si8.ta.shopping.rest.api;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -11,9 +12,9 @@ import javax.ws.rs.core.MediaType;
 public interface OrderService {
 
 	@POST
-	@Path("/add/{description}")
+	@Path("/add")
 	@Produces(MediaType.APPLICATION_JSON)
-	String createOrder(@PathParam("description") String description);
+	String createOrder(@FormParam("description") String description);
 	
 	@GET
 	@Path("/all")
