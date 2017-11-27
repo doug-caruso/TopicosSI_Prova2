@@ -1,7 +1,7 @@
 package br.edu.univas.si8.ta.shopping.ejb.beans;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
@@ -26,16 +26,17 @@ public class ShoppingBean implements ShoppingsLocal, ShoppingsRemote {
 		Shopping shopping = new Shopping();
 		shopping.setDescription(description);
 		Date order_time = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-		shopping.set(sdf.format(order_time));
-		// TODO Auto-generated method stub
-		
+		shopping.setOrder_time(order_time);
+		dao.insert(shopping);
 	}
 
 	@Override
 	public String[] listDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listAll()
+				.stream()
+				.map(Shopping::getDescription)
+				.collect(Collectors.toList())
+				.toArray(new String[0]);
 	}
 
 }

@@ -17,7 +17,7 @@ public class ShoppingDAO {
 	}
 
 	public List<Shopping> listAll() {
-		return em.createQuery("from clientes c", Shopping.class).getResultList();
+		return em.createQuery("from shopping_order s", Shopping.class).getResultList();
 	}
 
 }
