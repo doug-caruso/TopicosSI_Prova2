@@ -1,0 +1,5 @@
+
+dependencies {
+	compile project(':shopping-rest-api')
+	compile project(':shopping-rest-ejb-client')
+}
